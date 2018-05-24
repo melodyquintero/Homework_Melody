@@ -221,7 +221,7 @@ plt.show()
 
 ```
 
-    C:\Users\cheun\Anaconda3\lib\site-packages\matplotlib\cbook\deprecation.py:106: MatplotlibDeprecationWarning: Adding an axes using the same arguments as a previous axes currently reuses the earlier instance.  In a future version, a new instance will always be created and returned.  Meanwhile, this warning can be suppressed, and the future behavior ensured, by passing a unique label to each axes instance.
+    C:\Users\cheun\Anaconda3\envs\PythonData\lib\site-packages\matplotlib\cbook\deprecation.py:106: MatplotlibDeprecationWarning: Adding an axes using the same arguments as a previous axes currently reuses the earlier instance.  In a future version, a new instance will always be created and returned.  Meanwhile, this warning can be suppressed, and the future behavior ensured, by passing a unique label to each axes instance.
       warnings.warn(message, mplDeprecation, stacklevel=1)
     
 
@@ -249,7 +249,7 @@ plt.show()
 
 ```
 
-    C:\Users\cheun\Anaconda3\lib\site-packages\matplotlib\cbook\deprecation.py:106: MatplotlibDeprecationWarning: Adding an axes using the same arguments as a previous axes currently reuses the earlier instance.  In a future version, a new instance will always be created and returned.  Meanwhile, this warning can be suppressed, and the future behavior ensured, by passing a unique label to each axes instance.
+    C:\Users\cheun\Anaconda3\envs\PythonData\lib\site-packages\matplotlib\cbook\deprecation.py:106: MatplotlibDeprecationWarning: Adding an axes using the same arguments as a previous axes currently reuses the earlier instance.  In a future version, a new instance will always be created and returned.  Meanwhile, this warning can be suppressed, and the future behavior ensured, by passing a unique label to each axes instance.
       warnings.warn(message, mplDeprecation, stacklevel=1)
     
 
@@ -275,7 +275,7 @@ plt.axes().set_ylabel('')
 plt.show()
 ```
 
-    C:\Users\cheun\Anaconda3\lib\site-packages\matplotlib\cbook\deprecation.py:106: MatplotlibDeprecationWarning: Adding an axes using the same arguments as a previous axes currently reuses the earlier instance.  In a future version, a new instance will always be created and returned.  Meanwhile, this warning can be suppressed, and the future behavior ensured, by passing a unique label to each axes instance.
+    C:\Users\cheun\Anaconda3\envs\PythonData\lib\site-packages\matplotlib\cbook\deprecation.py:106: MatplotlibDeprecationWarning: Adding an axes using the same arguments as a previous axes currently reuses the earlier instance.  In a future version, a new instance will always be created and returned.  Meanwhile, this warning can be suppressed, and the future behavior ensured, by passing a unique label to each axes instance.
       warnings.warn(message, mplDeprecation, stacklevel=1)
     
 
@@ -286,3 +286,6 @@ plt.show()
 ## Findings: 
 * Urban area has the highest total number of rides and drivers number, also the lowest fare, followed by suburaban area and rural area.
 * Urban covers more than half of the Pyber business. More specifically, Urban contribute to 62% of total Fares, 68% of total rides and 66% of total drivers.
+
+## Limitations: 
+* In this Analysis, Total Drivers number is counted as the average driver count of the same city. However, this is based on the assumption that the same city has exact same driver counts. In reality, "Port James" city has two different driver counts. This can cause inaccurate Suburban data.   
