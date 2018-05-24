@@ -1,10 +1,5 @@
 
 # Pyber Data Analysis
-* Average Fare ($) is negatively correlated with number of rides. The more rides per city, the less fare cost.
-* Driver number is positively correlated with number of rides. The more rides, the more drivers per city.
-* Driver number is negatively correlated with average fare. The more drivers, the less fare cost.
-* Urban area has the highest total number of rides and drivers number, also the lowest fare, followed by suburaban area and rural area.
-* Urban covers more than half of the Pyber business. More specifically, Urban contribute to 62% of total Fares, 68% of total rides and 66% of total drivers.
 
 
 ```python
@@ -140,16 +135,14 @@ types_city.head()
 
 
 
-## Bubble Plot of Ride Sharing Data
-
 
 ```python
 # Before creating the scatter plot, assign the colors to each city type
 colors =[]
-for types in types_city:
-    if (types == "Urban"):
+for x in types_city:
+    if (x == "Urban"):
         color = "Lightcoral"
-    elif (types == "Suburban"):
+    elif (x == "Suburban"):
         color = "Lightblue"
     else:
         color = "Gold"
@@ -162,7 +155,7 @@ for types in types_city:
 plt.scatter(rides_city, fare_city, marker="o", c=colors, edgecolors="black", \
             linewidth = 1, s=drivers_city, alpha=0.75,label=None)
 
-# Build a new legend on an empty chart
+# Since the default legend of above scatter chart does not indicate city types, I build a new legend on an empty chart
 legend_colors ={"Urban":"Lightcoral","Suburban":"Lightblue","Rural":"Gold"}
 
 for types_city, legend_color in legend_colors.items():
@@ -188,23 +181,38 @@ plt.ylabel("Average Fare ($)")
 # Leave a note to specify the circle size variables
 plt.text((max(rides_city)+1), max(fare_city)-10, \
          "Note:"+"\n"+" Circle size correlates with driver count per city.")
+
 #plt.savefig("Pyber Ride Sharing Data.png")
 plt.show()
 ```
 
 
-![png](output_8_0.png)
+![png](output_7_0.png)
 
+
+## Findings:
+* Average Fare ($) is negatively correlated with number of rides. The more rides per city, the less fare cost.
+* Driver number is positively correlated with number of rides. The more rides, the more drivers per city.
+* Driver number is negatively correlated with average fare. The more drivers, the less fare cost.
+
+
+## Limitations:
+* As shown in the Scatter Plot, an abnormal data set shows extremely high total number of rides.
+* By digging in the raw data, I found that a city "Port James" has two sets of data with different driver count. This causes its total number of rides being calculated twice in two data sets.
+* A student T-test might be adopted to further decide whether to drop or merge the data.
 
 ## Total Fares by City Type
 
 
 ```python
+# Count Total Fare by city types
 fare_type = data_df.groupby(["type"])["fare"].sum()
 
 fare_type_chart = fare_type.plot(kind='pie', title= "% of Total Fares by City Type",explode = (0,0,0.1),
                                  colors=["Gold", "Lightblue", "lightcoral"], autopct="%1.1f%%",
                                  shadow=True, startangle=120,  wedgeprops = {'linewidth': 2})
+
+# Since the default pie chart contains labels that is not necessary required, I rewrite the empty labels
 plt.axes().set_xlabel('')
 plt.axes().set_ylabel('')
 
@@ -213,12 +221,12 @@ plt.show()
 
 ```
 
-    C:\Users\cheun\Anaconda3\envs\PythonData\lib\site-packages\matplotlib\cbook\deprecation.py:106: MatplotlibDeprecationWarning: Adding an axes using the same arguments as a previous axes currently reuses the earlier instance.  In a future version, a new instance will always be created and returned.  Meanwhile, this warning can be suppressed, and the future behavior ensured, by passing a unique label to each axes instance.
+    C:\Users\cheun\Anaconda3\lib\site-packages\matplotlib\cbook\deprecation.py:106: MatplotlibDeprecationWarning: Adding an axes using the same arguments as a previous axes currently reuses the earlier instance.  In a future version, a new instance will always be created and returned.  Meanwhile, this warning can be suppressed, and the future behavior ensured, by passing a unique label to each axes instance.
       warnings.warn(message, mplDeprecation, stacklevel=1)
     
 
 
-![png](output_10_1.png)
+![png](output_11_1.png)
 
 
 
@@ -231,19 +239,22 @@ Rides_type = data_df.groupby(["type"])["ride_id"].count()
 Rides_type_chart = Rides_type.plot(kind='pie', title= "% of Total Rides by City Type",explode = (0,0,0.1),
                                  colors=["Gold", "Lightblue", "lightcoral"], autopct="%1.1f%%",
                                  shadow=True, startangle=120,  wedgeprops = {'linewidth': 2}, )
+
+# Since the default pie chart contains labels that is not necessary required, I rewrite the empty labels
 plt.axes().set_xlabel('')
 plt.axes().set_ylabel('')
+
 #plt.savefig("")
 plt.show()
 
 ```
 
-    C:\Users\cheun\Anaconda3\envs\PythonData\lib\site-packages\matplotlib\cbook\deprecation.py:106: MatplotlibDeprecationWarning: Adding an axes using the same arguments as a previous axes currently reuses the earlier instance.  In a future version, a new instance will always be created and returned.  Meanwhile, this warning can be suppressed, and the future behavior ensured, by passing a unique label to each axes instance.
+    C:\Users\cheun\Anaconda3\lib\site-packages\matplotlib\cbook\deprecation.py:106: MatplotlibDeprecationWarning: Adding an axes using the same arguments as a previous axes currently reuses the earlier instance.  In a future version, a new instance will always be created and returned.  Meanwhile, this warning can be suppressed, and the future behavior ensured, by passing a unique label to each axes instance.
       warnings.warn(message, mplDeprecation, stacklevel=1)
     
 
 
-![png](output_12_1.png)
+![png](output_13_1.png)
 
 
 ## Total Drivers by City Type
@@ -255,6 +266,8 @@ drivers_type = data_df.groupby(["type"])["driver_count"].mean ()
 drivers_chart = drivers_type.plot(kind='pie', title= "% of Total Drivers by City Type",explode = (0,0,0.1),
                                  colors=["Gold", "Lightblue", "lightcoral"], autopct="%1.1f%%",
                                  shadow=True, startangle=120,  wedgeprops = {'linewidth': 2}, )
+
+# Since the default pie chart contains labels that is not necessary required, I rewrite the empty labels
 plt.axes().set_xlabel('')
 plt.axes().set_ylabel('')
 
@@ -262,10 +275,14 @@ plt.axes().set_ylabel('')
 plt.show()
 ```
 
-    C:\Users\cheun\Anaconda3\envs\PythonData\lib\site-packages\matplotlib\cbook\deprecation.py:106: MatplotlibDeprecationWarning: Adding an axes using the same arguments as a previous axes currently reuses the earlier instance.  In a future version, a new instance will always be created and returned.  Meanwhile, this warning can be suppressed, and the future behavior ensured, by passing a unique label to each axes instance.
+    C:\Users\cheun\Anaconda3\lib\site-packages\matplotlib\cbook\deprecation.py:106: MatplotlibDeprecationWarning: Adding an axes using the same arguments as a previous axes currently reuses the earlier instance.  In a future version, a new instance will always be created and returned.  Meanwhile, this warning can be suppressed, and the future behavior ensured, by passing a unique label to each axes instance.
       warnings.warn(message, mplDeprecation, stacklevel=1)
     
 
 
-![png](output_14_1.png)
+![png](output_15_1.png)
 
+
+## Findings: 
+* Urban area has the highest total number of rides and drivers number, also the lowest fare, followed by suburaban area and rural area.
+* Urban covers more than half of the Pyber business. More specifically, Urban contribute to 62% of total Fares, 68% of total rides and 66% of total drivers.
