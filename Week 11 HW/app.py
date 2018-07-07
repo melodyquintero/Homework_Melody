@@ -13,7 +13,7 @@ import json
 #################################################
 # Database Setup
 #################################################
-engine = create_engine("sqlite:///hawaii.sqlite")
+engine = create_engine("sqlite:///hawaii.sqlite", connect_args={'check_same_thread': False})
 
 # reflect an existing database into a new model
 Base = automap_base()
