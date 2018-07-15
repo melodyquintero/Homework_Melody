@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Weatherpy Web Visualization</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+      .navbar-brand {
+        margin-left: 50px;
+        background-color: rgb(84, 2, 104);
+      }
+      
+  
+      .navbar-default .navbar-brand {
+        color: white;
+      }
+
+      .container-footer{
+        color: white; 
+        background-color: rgb(84, 2, 104); 
+        background-size: auto;
+        padding: 20px;
+        font-size: 80%;
+
+      }
+
+    </style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="Index.html">Latitude Weather Analysis</a>
+        </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plots <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="MaxTemperature.html">Max Temperature</a></li>
+                    <li><a href="Humidity.html">Humidity</a></li>
+                    <li><a href="Cloudiness.html">Cloudiness</a></li>
+                    <li><a href="WindSpeed.html">Wind Speed</a></li>
+                    </ul>
+                  </li>
+                <li><a href="Comparison.html">Comparison</a></li>
+                <li><a href="Data.html">Data</a></li>
+              </ul>
+          </div>
+
+      </div>
+
+    </nav>
+
+  <div class="container">
+      <div class="row">
+          <div class="col-md-8">
+              <div class="jumbotron">
+                
+                <h2><strong>Summary: Latitude Weather Analysis</strong></h2>
+                <hr>
+                <img style="float: left; " src="https://cdn1.iconfinder.com/data/icons/nature-cool-vector-2/128/100-512.png" width="250" height="250" > 
+                <br>
+                <p style="font-size:15px; ">This project explores the relationship between weather and latitude. In this study, we retrieved and plotted data from the OpenWeatherMap API to visualize the weather of 500+ cities across the world of varying distance from the equator to show the following relationship:<br>
+                <br>
+                </p>
+                <li><a href="MaxTemperature.html" target="_blank">Temperature (F) vs. Latitude</a></li>
+                <li><a href="Humidity.html" target="_blank">Humidity (%) vs. Latitude</a></li>
+                <li><a href="Cloudiness.html" target="_blank">Cloudiness (%) vs. Latitude</a></li>
+                <li><a href="WindSpeed.html" target="_blank">Wind Speed (mph) vs. Latitude</a></li>
+                </div>
+            </div>
+
+          <div class="col-md-4">
+              <div class="jumbotron">
+                
+                <h3><strong>Visualizations</strong></h3>
+                <hr>
+                <div class="row" >
+                    <div class="col-lg-6 col-md-6 col-sm-8 col-xs-8"><a href="MaxTemperature.html" target="_blank"><img src="assets\Latitude_Max Temperature.png" style="height: 80px" alt="" ></a></div>
+                    <div class="col-lg-6 col-md-6 col-sm-8 col-xs-8"><a href="Humidity.html" target="_blank"><img src="assets\City Latitude_Humidity.png" style="height: 80px" alt=""></a></div>
+                  </div>
+                <br/>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-8 col-xs-8"><a href="Cloudiness.html" target="_blank"><img src="assets\City Latitude_Cloudiness.png" style="height: 80px" alt="" ></a></div>
+                    <div class="col-lg-6 col-md-6 col-sm-8 col-xs-8"><a href="WindSpeed.html" target="_blank"><img src="assets\City Latitude_Wind Speed.png" style="height: 80px" alt=""></a></div>
+                  </div>
+
+                </div>  
+            </div>
+
+        </div>
+
+   </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<hr>
+<div class="container-footer"> 
+    <footer style="background-color: rgb(84, 2, 104)">
+            <p  font-size:5px>© Copyright Melody Yunchen Zhang 2018 </p>
+    </footer>
+</div>
+
+</html>
+          
+          
